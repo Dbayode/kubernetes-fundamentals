@@ -23,6 +23,6 @@ jobs:
           set -euo pipefail
           helm lint ./charts/nginx-web
           helm template nginx-lab ./charts/nginx-web \
-            | grep -Fx '  replicas: 2'
-          helm template nginx-lab ./charts/nginx-web --set replicaCount=3 \
             | grep -Fx '  replicas: 3'
+          helm template nginx-lab ./charts/nginx-web --set replicaCount=4 \
+            | grep -Fx '  replicas: 4'
