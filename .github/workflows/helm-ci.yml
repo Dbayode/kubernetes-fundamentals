@@ -26,3 +26,16 @@ jobs:
             | grep -Fx '  replicas: 2'
           helm template nginx-lab ./charts/nginx-web --set replicaCount=3 \
             | grep -Fx '  replicas: 3'
+
+
+      - name: Create Kind cluster
+        uses: helm/kind-action@v1
+
+      - name: Install chart and test homepage
+        shell: bash
+        run: |
+          set -euo pipefail
+          helm install nginx-lab ./charts/nginx-web \
+            --namespace helm-lab --create-namespace --wait --timeout 3m
+          helm test nginx-lab \
+            --namespace helm-lab --logs --timeout 2m
