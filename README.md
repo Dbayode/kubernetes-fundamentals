@@ -20,3 +20,6 @@ Kubernetes v1.37.0 cluster. The node used containerd 2.3.4.
 - `manifests/service.yaml` — ClusterIP Service
 - `evidence/` — terminal output from the verification steps
 - `TROUBLESHOOTING.md` — issue, diagnosis, fix, and verification
+
+
+[![Helm CI](https://github.com/Dbayode/kubernetes-fundamentals/actions/workflows/helm-ci.yml/badge.svg?branch=main)](https://github.com/Dbayode/kubernetes-fundamentals/actions/workflows/helm-ci.yml)
