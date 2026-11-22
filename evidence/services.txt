@@ -1,0 +1,3 @@
+NAME             TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+nginx-web        ClusterIP   10.104.204.34    <none>        80/TCP         134m
+nginx-nodeport   NodePort    10.100.237.178   <none>        80:30240/TCP   0s
