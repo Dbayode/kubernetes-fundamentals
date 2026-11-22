@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-test-homepage"
+  annotations:
+    "helm.sh/hook": test
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  restartPolicy: Never
+  containers:
+    - name: homepage-check
+      image: nginx:1.28-alpine
+      command: ["sh", "-ec"]
+      args:
+        - |
+          page=$(curl -fsS --max-time 10 http://nginx-web/)
+          printf '%s\n' "$page" | grep -F '<title>Kubernetes Fundamentals</title>'
